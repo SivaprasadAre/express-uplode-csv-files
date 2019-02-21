@@ -1,0 +1,83 @@
+<% var title = 'Authentication Example' %>
+<% include head %>
+
+<div class="container">
+
+      <div class="col-sm-6 col-sm-offset-3">
+      
+          <h1><span class="fa fa-sign-in"></span> Signup</h1>
+      
+          <!-- show any messages that come back with authentication -->
+                
+          <!-- LOGIN FORM -->
+          <form action="/register" method="post">
+              <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" class="form-control" name="username">
+              </div>
+              <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="password">
+              </div>
+              <div class="form-group">
+                  <label>Plase</label>
+                  <textarea name="place" class="form-control" rows="2" cols="20"></textarea>
+              </div>
+              <div class="form-group">
+                  <label>Incognito</label>
+                  <div class="form-control">
+                        <input type="radio" name="incognito" value="true" > True</input>
+                        <input type="radio" name="incognito" value="false"> False</input>
+                  </div>
+              </div>
+      
+              <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+          </form>
+      
+          <hr>
+      
+          <p>Already have an account? <a href="/login">Login</a></p>
+          <p>Or go <a href="/">home</a>.</p>
+      
+      </div>
+      
+      </div>
+      
+
+<!-- <form method="POST" action="/register">
+    <TABLE>
+        <TR>
+           <TD><label>Username:</label></TD>
+           <TD><input type="text" name="username" required  oninvalid="this.setCustomValidity('User Name is a must')" ></TD>
+        </TR>
+        <TR>
+           <TD><label>Password:</label></TD>
+           <TD><input type="password" name="password" required  oninvalid="this.setCustomValidity('Password is a must')" ></TD>
+        </TR>
+        <TR>
+            <TD><label>Returin Password:</label></TD>
+            <TD> <input type="password" required  oninvalid="this.setCustomValidity('Recuri Password is a must')" ></TD>
+         </TR>
+         <TR>
+            <TD><label>Place:</label></TD>
+            <TD>
+                    <textarea name="place" rows="2" cols="21"></textarea></TD>
+         </TR>
+         <TR>
+            <TD><label>Incognito Mode:</label></TD>
+            <TD>
+               <input type="radio" name="incognito" value="true" > True</input>
+  <input type="radio" name="incognito" value="false"> False</input>
+
+         </TR>
+         <TR>
+            <TD></TD>
+            <TD>
+               <button type="submit" value="register">Register</button>
+         </TR>
+         
+     </TABLE>
+     
+</form> -->
+
+<% include foot %>

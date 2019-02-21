@@ -1,0 +1,112 @@
+<% var title = 'Authentication Example' %>
+<% include head %>
+
+<div class="container">
+
+    <div class="jumbotron text-center">
+        <%if (uplodeBuiten) { %>
+        <p>Login or Register with:</p>
+
+        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+        <a href="/register" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+        <%} else { %>
+
+        <form action="/template" method="GET"> 
+          <div class="row">
+            <div class="col-xs-6 col-md-12">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" id="txtSearch"/>
+                <div class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+        <div style="position:relative;">
+            <div class="row">
+ <div  class="form-group col-xs-3">
+  <form method="post" action="/upload" enctype="multipart/form-data"> 
+    <label class="btn btn-primary" for="my-file-selector">
+        <input id="my-file-selector" type="file"  name="file" multiple style="display:none;">
+        Choose File...
+    </label> 
+    <label class="btn btn-primary">
+      <input id="submit" type="submit"  formaction="/upload" style="display:none;">
+      Uplode
+  </label>
+  </form>
+ </div>
+                <div class="form-group col-xs-6">
+                    <form method="GET"> 
+                        <div class="row">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <label class="btn btn-primary">
+                                      <input id="my-submit" type="submit" formaction="/template" style="display:none;">
+                                      Template
+                                  </label>
+                                </div>
+                               
+                              </div>
+                        </div>
+                      </form>
+                  </div>
+                  <div  class="form-group col-xs-3">
+                      <form method="GET"> 
+                    <div class="input-group-btn">
+                      <label class="btn btn-primary">
+                        <input id="my-submit" type="submit" formaction="/logout" style="display:none;">
+                        Logout
+                    </label>
+                  </div>
+                </form>
+                  </div>
+            </div>
+           
+            
+        </div>
+        <div>
+            <table class="table table-dark">                
+                  <%if (drinks) { %>
+                    <thead class="thead-dark"></thead>
+                        <tr>
+                          <th scope="col">Co no</th>
+                          <th scope="col">User Name</th>
+                          <th scope="col">Place</th>
+                          <th scope="col">Latitude</th>
+                          <th scope="col">Longitude</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <% drinks.forEach(function(drink,id) { %>
+                            <tr>
+                                <th scope="row"><%= id+1 %></th>
+                                <td><%= drink.username %> </td>
+                                <td><%= drink.place %> </td>
+                                <td><%= drink._doc.lat %> </td>
+                                <td><%= drink._doc.lag %> </td>
+                              </tr>
+                            <!-- <tr> <td style="text-align: center;"><%= drink.username %> </td>
+                              <td style="text-align: center;"> <%= drink.place %></td>
+                              <td style="text-align: center;"> <%= drink._doc.lat %></td>
+                              <td style="text-align: center;"> <%= drink._doc.lag %></td>
+                             </tr> -->
+                        <% }); %>
+                      </tbody>
+                    <!-- <tr>
+                        <th style="border: 1px solid white;padding: 8px;">User Name</th><th style="border: 1px solid white;">Place</th><th style="border: 1px solid white;">Latitude</th><th style="border: 1px solid white;">Longitude</th>
+                      </tr> -->
+                   
+                    <% } %>
+              </table>
+        </div>
+           <% } %>
+    </div>
+  </div>
+
+
+<% include foot %>
